@@ -13,7 +13,7 @@ A small image classification project with a Streamlit front end and a Jupyter no
 Python 3.10 or 3.11 is recommended.
 
 ```bash
-git clone <your-repository-url>
+git clone https://github.com/intekhabstatic/object-detection.git
 cd object-detection
 python -m venv .venv
 ```
@@ -39,19 +39,10 @@ Start Jupyter with `jupyter notebook` and open `mobilenetv2_image_classifier.ipy
 
 ## Model notes
 
+Despite the repository name, this version performs whole-image classification. It does not locate objects or draw bounding boxes.
+
 The project uses `tf.keras.applications.MobileNetV2(weights="imagenet", include_top=True)`. It predicts 1,000 ImageNet classes and is intended as a general-purpose demo. It has not been fine-tuned on a custom dataset. Predictions can be inaccurate for specialized domains.
 
-## GitHub
 
-Create an empty GitHub repository, then from this folder run:
-
-```bash
-git init
-git add .
-git commit -m "Add MobileNetV2 image classifier"
-git branch -M main
-git remote add origin <your-repository-url>
-git push -u origin main
-```
 
 
