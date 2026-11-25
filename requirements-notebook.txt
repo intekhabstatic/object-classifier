@@ -1,0 +1,5 @@
+# Optional dependencies for running the notebook locally
+-r requirements.txt
+matplotlib>=3.7
+jupyter>=1.0
+
