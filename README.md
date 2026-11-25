@@ -1,16 +1,14 @@
-# MobileNetV2 Image Classifier
+# Image Recognition Demo
 
-A small image classification project with a Streamlit front end and a Jupyter notebook. It uses the ImageNet-pretrained MobileNetV2 model, so no training step is required. The first run downloads the pretrained weights.
+A small image recognition project with a browser interface and a Jupyter notebook. Upload an image to see the model’s five most likely ImageNet categories.
 
-## Features
+> **Note:** This project classifies the whole image. It does not locate objects or draw bounding boxes, despite the repository name.
 
-- Upload JPG, PNG, or WebP images in a browser interface
-- See the top 1–10 ImageNet predictions with confidence scores
-- Explore the same model workflow in `mobilenetv2_image_classifier.ipynb`
+## Open the project
 
-## Run locally
+The GitHub repository is [intekhabstatic/object-detection](https://github.com/intekhabstatic/object-detection). It is private, so sign in to GitHub with an account that has access.
 
-Python 3.10 or 3.11 is recommended.
+The browser app is not hosted online. To run it on your computer, clone the repository and start the app:
 
 ```bash
 git clone https://github.com/intekhabstatic/object-detection.git
@@ -18,31 +16,29 @@ cd object-detection
 python -m venv .venv
 ```
 
-Activate the environment, then install dependencies and launch the app:
+Activate the environment, then install the requirements and launch the interface:
 
-```bash
+```powershell
 # Windows PowerShell
 .venv\Scripts\Activate.ps1
-
-# macOS/Linux
-source .venv/bin/activate
-
 pip install -r requirements.txt
 streamlit run app.py
 ```
 
-Open the local URL printed by Streamlit, usually `http://localhost:8501`.
+```bash
+# macOS or Linux
+source .venv/bin/activate
+pip install -r requirements.txt
+streamlit run app.py
+```
 
-## Notebook
+Open the local address printed by Streamlit, usually `http://localhost:8501`. The first run downloads the pretrained weights.
 
-Start Jupyter with `jupyter notebook` and open `mobilenetv2_image_classifier.ipynb`. Upload or enter the path to an image when prompted. In Google Colab, the notebook uses the Colab upload widget automatically.
+## Use the notebook
 
-## Model notes
+Open `mobilenetv2_image_classifier.ipynb` in Jupyter and run its cells. In Google Colab, upload an image when prompted; in local Jupyter, enter the image file path.
 
-Despite the repository name, this version performs whole-image classification. It does not locate objects or draw bounding boxes.
+## Credits
 
-The project uses `tf.keras.applications.MobileNetV2(weights="imagenet", include_top=True)`. It predicts 1,000 ImageNet classes and is intended as a general-purpose demo. It has not been fine-tuned on a custom dataset. Predictions can be inaccurate for specialized domains.
-
-
-
+Credit goes to the original creators of the pretrained image-recognition model and to the contributors who curated its training data. Their work makes this demonstration possible. This project uses their pretrained work and does not claim authorship of it.
 
