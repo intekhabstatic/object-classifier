@@ -1,22 +1,20 @@
-# Image Recognition Demo
+# Object Classifier
 
-A small image recognition project with a browser interface and a Jupyter notebook. Upload an image to see the model’s five most likely ImageNet categories.
+A simple image classification demo with a Streamlit browser interface and a Jupyter notebook. Upload a photo to view likely categories and their confidence scores.
 
-> **Note:** This project classifies the whole image. It does not locate objects or draw bounding boxes, despite the repository name.
+> This app classifies the full image. It does not locate objects or draw bounding boxes.
 
-## Open the project
+## Run the app on your computer
 
-The GitHub repository is [intekhabstatic/object-detection](https://github.com/intekhabstatic/object-detection). It is private, so sign in to GitHub with an account that has access.
-
-The browser app is not hosted online. To run it on your computer, clone the repository and start the app:
+Clone the private GitHub repository and install the app dependencies:
 
 ```bash
-git clone https://github.com/intekhabstatic/object-detection.git
-cd object-detection
+git clone https://github.com/intekhabstatic/object-classifier.git
+cd object-classifier
 python -m venv .venv
 ```
 
-Activate the environment, then install the requirements and launch the interface:
+Activate the environment, then start the app:
 
 ```powershell
 # Windows PowerShell
@@ -32,11 +30,22 @@ pip install -r requirements.txt
 streamlit run app.py
 ```
 
-Open the local address printed by Streamlit, usually `http://localhost:8501`. The first run downloads the pretrained weights.
+Open the local address Streamlit prints, usually `http://localhost:8501`. The first classification may take longer while the pretrained weights are downloaded.
 
-## Use the notebook
+## Deploy on Render
 
-Open `mobilenetv2_image_classifier.ipynb` in Jupyter and run its cells. In Google Colab, upload an image when prompted; in local Jupyter, enter the image file path.
+The repository includes `render.yaml` for a free Render web service. To deploy:
+
+1. Sign in to Render and connect your GitHub account, granting access to this private repository.
+2. In Render, create a **Blueprint** and select `intekhabstatic/object-classifier`.
+3. Apply the blueprint. Render reads `render.yaml`, installs the dependencies, and starts the app.
+4. Open the `onrender.com` address shown on the service page after the deploy succeeds.
+
+Free Render web services sleep after 15 minutes without traffic, so the first visit after idle can take about a minute to load. The free plan also has limited memory; if the service restarts while loading the image model, a higher-memory plan may be needed. No paid plan is configured by this project.
+
+## Jupyter notebook
+
+To run the notebook locally, install its optional dependencies with `pip install -r requirements-notebook.txt`, then open `mobilenetv2_image_classifier.ipynb` in Jupyter. In Google Colab, upload an image when prompted.
 
 ## Credits
 
